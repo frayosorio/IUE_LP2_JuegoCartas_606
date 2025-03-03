@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -8,11 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.WindowConstants;
 
-
 public class FrmJuego extends JFrame {
 
-    private JButton btnEscaleras;
-    private JButton btnOrdenar;
     private JButton btnRepartir;
     private JButton btnVerificar;
     private JPanel pnlJugador1;
@@ -25,8 +23,6 @@ public class FrmJuego extends JFrame {
         tpJugadores = new JTabbedPane();
         pnlJugador1 = new JPanel();
         pnlJugador2 = new JPanel();
-        btnOrdenar = new JButton();
-        btnEscaleras = new JButton();
 
         setSize(600, 300);
         setTitle("Juego de Cartas");
@@ -62,13 +58,21 @@ public class FrmJuego extends JFrame {
         getContentPane().add(btnRepartir);
         getContentPane().add(btnVerificar);
 
+        jugador1 = new Jugador();
+        jugador2 = new Jugador();
     }
 
-    private void btnRepartirClick(ActionEvent evt) {  
+    Jugador jugador1, jugador2;
 
+    private void btnRepartirClick(ActionEvent evt) {
+        jugador1.repartir();
+        jugador1.mostrar(pnlJugador1);
+
+        jugador2.repartir();
+        jugador2.mostrar(pnlJugador2);
     }
 
-    private void btnVerificarClick(ActionEvent evt) {  
+    private void btnVerificarClick(ActionEvent evt) {
 
     }
 
